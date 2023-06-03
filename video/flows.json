@@ -1,0 +1,238 @@
+[
+    {
+        "id": "7b9ed63e.2138f8",
+        "type": "tab",
+        "label": "Basic_Flow",
+        "disabled": false,
+        "info": "# Basic flow to start with STM32CubeMonitor."
+    },
+    {
+        "id": "e98515f3f61f9624",
+        "type": "ui_button",
+        "z": "7b9ed63e.2138f8",
+        "name": "",
+        "group": "f9c34dde.1e2f4",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "START",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "START",
+        "topicType": "str",
+        "x": 80,
+        "y": 80,
+        "wires": [
+            [
+                "510d5f4a39e2e161"
+            ]
+        ]
+    },
+    {
+        "id": "60c6896491c1f097",
+        "type": "ui_button",
+        "z": "7b9ed63e.2138f8",
+        "name": "",
+        "group": "f9c34dde.1e2f4",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "STOP",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "STOP",
+        "topicType": "str",
+        "x": 90,
+        "y": 180,
+        "wires": [
+            [
+                "510d5f4a39e2e161"
+            ]
+        ]
+    },
+    {
+        "id": "feba220bd25a8e76",
+        "type": "ui_write",
+        "z": "7b9ed63e.2138f8",
+        "group": "f9c34dde.1e2f4",
+        "name": "Graph",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "x": 370,
+        "y": 80,
+        "wires": [
+            [
+                "50369597c96e23e2"
+            ]
+        ]
+    },
+    {
+        "id": "50369597c96e23e2",
+        "type": "acquisition out",
+        "z": "7b9ed63e.2138f8",
+        "name": "ADC",
+        "probeconfig": "c05c52db7a0bcd2a",
+        "x": 430,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "496e2321a310e837",
+        "type": "acquisition in",
+        "z": "7b9ed63e.2138f8",
+        "name": "a",
+        "probeconfig": "c05c52db7a0bcd2a",
+        "x": 90,
+        "y": 380,
+        "wires": [
+            [
+                "f88bc695e3e90fc1"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "6116734942909f07",
+        "type": "ui_chartst",
+        "z": "7b9ed63e.2138f8",
+        "group": "f9c34dde.1e2f4",
+        "name": "",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "chartType": "line",
+        "curveType": "linear",
+        "duration": "10",
+        "ymin": "",
+        "ymax": "",
+        "x": 450,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "f88bc695e3e90fc1",
+        "type": "processing",
+        "z": "7b9ed63e.2138f8",
+        "groupname": "b",
+        "groupid": "98f07e8a8abd0fd3",
+        "expressions": [],
+        "statistics": [],
+        "logmode": "changes",
+        "logformat": "stcm",
+        "x": 250,
+        "y": 380,
+        "wires": [
+            [
+                "6116734942909f07"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "510d5f4a39e2e161",
+        "type": "variables",
+        "z": "7b9ed63e.2138f8",
+        "groupname": "b",
+        "accesspoint": 0,
+        "execonfig": "b202c5d0fc14cc33",
+        "variablelist": [],
+        "triggerstartmode": "manual",
+        "triggername": "Adc_value",
+        "triggerthreshold": "",
+        "frequency": "",
+        "frequencyType": "0",
+        "snapshotheader": "",
+        "mode": "direct",
+        "lastImportedTime": 1685791899198,
+        "openStatus": false,
+        "x": 230,
+        "y": 140,
+        "wires": [
+            [
+                "50369597c96e23e2",
+                "feba220bd25a8e76"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "f9c34dde.1e2f4",
+        "type": "ui_group",
+        "name": "Chart",
+        "tab": "17d09b07.741a55",
+        "order": 1,
+        "disp": true,
+        "width": "15",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "c05c52db7a0bcd2a",
+        "type": "probe",
+        "probeid": "066BFF535570514867231628",
+        "probename": "ST-Link v2-1B 066BFF535570514867231628",
+        "protocol": "SWD",
+        "frequency": "1.8 MHz - Default",
+        "probeproperty": "{\"SWD\":[\"4.6 MHz\",\"1.8 MHz - Default\",\"950 kHz\",\"400 kHz\",\"150 kHz\"],\"JTAG\":[\"18 MHz\",\"9 MHz\",\"4.5 MHz\",\"2.25 MHz\",\"1.12 MHz - Default\",\"560 kHz\",\"280 kHz\",\"140 kHz\"]}",
+        "probeversion": "ST Link firmware version V2.J41",
+        "connectionType": "p2p",
+        "nickname": ""
+    },
+    {
+        "id": "b202c5d0fc14cc33",
+        "type": "exe-config",
+        "name": "b",
+        "exefile": "C:\\Users\\User\\STM32CubeIDE\\workspace_1.12.0\\Project 3\\Debug\\Project 3.elf",
+        "exefolder": "C:\\Users\\User\\STM32CubeIDE\\workspace_1.12.0\\Project 3\\Debug",
+        "exevariablelist": [
+            {
+                "address": "0x20000024",
+                "name": "Adc_value",
+                "type": 5,
+                "checked": true
+            },
+            {
+                "address": "0x20000000",
+                "name": "SystemCoreClock",
+                "type": 5
+            },
+            {
+                "address": "0x20000028",
+                "name": "uwTick",
+                "type": 5,
+                "checked": false
+            },
+            {
+                "address": "0x20000004",
+                "name": "uwTickFreq",
+                "type": 2,
+                "checked": false
+            }
+        ],
+        "expand": false,
+        "filename": "Select a file ...",
+        "exeModifiedTime": 1685791872181,
+        "configLastUpdate": 1685791898875
+    },
+    {
+        "id": "17d09b07.741a55",
+        "type": "ui_tab",
+        "name": "Home",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]
