@@ -1,0 +1,5 @@
+main.c:11:5:main	2
+main.c:33:6:Configure_ADC	1
+main.c:46:6:Configure_UART	1
+main.c:58:6:Delay_ms	2
+main.c:66:6:UART_SendByte	2
